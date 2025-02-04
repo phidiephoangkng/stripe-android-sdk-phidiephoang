@@ -3,6 +3,7 @@ package com.stripe.android.paymentsheet
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.annotation.VisibleForTesting
@@ -105,6 +106,7 @@ internal class PaymentSheetActivity : BaseSheetActivity<PaymentSheetResult>() {
             Activity.RESULT_OK,
             Intent().putExtras(PaymentSheetContractV2.Result(result).toBundle())
         )
+        Log.d("PaymentSheetActivity", "setActivityResult: $result")
     }
 
     private fun finishWithError(error: Throwable?) {
